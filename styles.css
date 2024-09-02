@@ -105,7 +105,7 @@ button:hover {
 #footer h2 {
     margin: 0;
     color: #616161;
-    font-size: 5px;
+    font-size: 7px;
 }
 
 
@@ -118,11 +118,11 @@ button:hover {
 @media (max-width: 600px) {
     #footer {
         padding: 5px;
-        font-size: 12px;
+        font-size: 17px;
     }
 
     #footer h2 {
-        font-size: 14px;
+        font-size: 7px;
     }
 
     #copyright {
