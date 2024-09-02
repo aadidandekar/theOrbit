@@ -1,0 +1,133 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#heading {
+    background-color: #1f1f1f;
+    color: #34c759;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #34c759;
+}
+
+#heading h1 {
+    margin: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+#chatContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 150px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#nb {
+    flex-grow: 1;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+#nb p {
+    background-color: #2c2c2e;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #f5f5f7;
+    font-size: 16px;
+}
+
+#newMessageContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#name {
+    flex: 0.2;
+    background-color: #2c2c2e;
+    color: #f5f5f7;
+    border: 1px solid #3a3a3c;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    height: 25px;
+}
+
+#in {
+    flex: 1;
+    background-color: #2c2c2e;
+    color: #f5f5f7;
+    border: 1px solid #3a3a3c;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+    height: 25px;
+}
+
+button {
+    background-color: #34c759;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #28a745;
+}
+
+#footer {
+    background-color: #1f1f1f;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #34c759;
+}
+
+#footer h2 {
+    margin: 0;
+    color: #616161;
+    font-size: 17px;
+}
+
+#copyright {
+    font-size: 12px;
+}
+
+#publishButton {
+    height: 46px;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 600px) {
+    #footer {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    #footer h2 {
+        font-size: 14px;
+    }
+
+    #copyright {
+        font-size: 8px;
+    }
+}
