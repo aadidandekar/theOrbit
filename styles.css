@@ -122,22 +122,34 @@ button:hover {
 
     #newMessageContainer {
         flex-direction: column; /* Stack items vertically on mobile */
+        gap: 0; /* Remove gap between input fields */
     }
 
     #name {
-        flex: 0; /* Remove flex-grow/shrink on mobile */
-        width: 100%; /* Full width for the name input */
+        width: 100%; /* Full width for name input on mobile */
         margin-bottom: 10px; /* Space between input fields */
     }
 
     #in {
-        flex: 0; /* Remove flex-grow/shrink on mobile */
-        width: 100%; /* Full width for the message input */
+        width: 100%; /* Full width for message input on mobile */
     }
 
+    /* Flexbox adjustments for ratio on mobile */
     #newMessageContainer {
-        display: grid;
-        grid-template-columns: 70% 30%; /* 70:30 ratio for message and name input */
-        gap: 10px; /* Space between inputs */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #name, #in {
+        flex: none; /* Remove default flex properties */
+    }
+
+    #name {
+        width: 30%; /* 30% width for name input */
+    }
+
+    #in {
+        width: 70%; /* 70% width for message input */
     }
 }
