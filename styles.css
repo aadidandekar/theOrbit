@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     background-color: #121212;
     color: #e0e0e0;
@@ -105,27 +106,38 @@ button:hover {
 #footer h2 {
     margin: 0;
     color: #616161;
-    font-size: 7px;
-}
-
-
-
-#publishButton {
-    height: 46px;
+    font-size: 7px; /* Default font size for desktop */
 }
 
 /* Media Query for Mobile Devices */
 @media (max-width: 600px) {
     #footer {
         padding: 5px;
-        font-size: 17px;
+        font-size: 7px; /* Font size for mobile devices */
     }
 
     #footer h2 {
-        font-size: 7px;
+        font-size: 7px; /* Ensures the font size on mobile is 7px */
     }
 
-    #copyright {
-        font-size: 8px;
+    #newMessageContainer {
+        flex-direction: column; /* Stack items vertically on mobile */
+    }
+
+    #name {
+        flex: 0; /* Remove flex-grow/shrink on mobile */
+        width: 100%; /* Full width for the name input */
+        margin-bottom: 10px; /* Space between input fields */
+    }
+
+    #in {
+        flex: 0; /* Remove flex-grow/shrink on mobile */
+        width: 100%; /* Full width for the message input */
+    }
+
+    #newMessageContainer {
+        display: grid;
+        grid-template-columns: 70% 30%; /* 70:30 ratio for message and name input */
+        gap: 10px; /* Space between inputs */
     }
 }
