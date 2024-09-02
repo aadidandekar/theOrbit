@@ -15,11 +15,38 @@ document.addEventListener('DOMContentLoaded', function() {
   firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
 
+  // List of bad words (example list)
+  const badWords = [
+    "abuse", "bastard", "bitch", "bollocks", "cunt", "damn", "dick", 
+    "douche", "fuck", "motherfucker", "piss", "porn", "prick", "pussy", 
+    "shit", "slut", "tits", "twat", "wanker", "whore",
+    // Potentially harmful terms (for general protection)
+    "pedo", "pedophile", "rape", "assault", "molest"
+  ];
+
+  // Function to check for bad words
+  function containsBadWords(message) {
+    const lowerCaseMessage = message.toLowerCase();
+    return badWords.some(word => lowerCaseMessage.includes(word));
+  }
+
   // Function to publish a blog
   function publishBlog() {
-    const userName = document.getElementById('name').value;
+    const userName = document.getElementById('name').value.trim();
     const timeAtUser = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    const blogInput = document.getElementById('in').value;
+    const blogInput = document.getElementById('in').value.trim();
+
+    // Check if name or message is empty
+    if (!userName || !blogInput) {
+      alert("Name and message cannot be empty.");
+      return;
+    }
+
+    // Check for bad words in the message
+    if (containsBadWords(blogInput)) {
+      alert("Message contains inappropriate content.");
+      return;
+    }
 
     // Push blog data to Firebase
     db.ref('blogs').push({
@@ -30,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Clear input after publishing
     document.getElementById('in').value = '';
+    document.getElementById('name').value = '';
   }
 
   // Event listener for Enter key press in the textarea
