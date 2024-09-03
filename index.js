@@ -16,13 +16,44 @@ document.addEventListener('DOMContentLoaded', function() {
   const db = firebase.database();
 
   // List of bad words (example list)
-  const badWords = [
-    "abuse", "bastard", "bitch", "bollocks", "cunt", "damn", "dick", 
-    "douche", "fuck", "motherfucker", "piss", "porn", "prick", "pussy", 
-    "shit", "slut", "tits", "twat", "wanker", "whore",
-    // Potentially harmful terms (for general protection)
-    "pedo", "pedophile", "rape", "assault", "molest"
-  ];
+const badWords = [
+  "abuse", "bastard", "bitch", "bollocks", "cunt", "damn", "dick", 
+  "douche", "fuck", "motherfucker", "piss", "porn", "prick", "pussy", 
+  "shit", "slut", "tits", "twat", "wanker", "whore",
+
+  // Potentially harmful terms (for general protection)
+  "pedo", "pedophile", "rape", "assault", "molest",
+
+  // Additional offensive terms
+  "arse", "arsehole", "balls", "bugger", "cock", "crap", "faggot", 
+  "goddamn", "hell", "jerk", "knob", "minger", "nigger", "nigga", 
+  "prat", "queer", "screw", "scumbag", "shithead", "skank", "slag", 
+  "tosser", "tramp", "turd", "twit", "wank", "bloody", "bollock", 
+  "boob", "bugger", "chav", "clunge", "minge", "muppet", "nonce", 
+  "numbnuts", "pillock", "plonker", "poof", "poofter", "scrubber", 
+  "sodding", "tart", "twunt", "wazzock", "wench", "cockwomble",
+
+  // Racial and ethnic slurs
+  "chink", "gook", "kike", "spic", "wetback", "gypsy", "pikey",
+  "raghead", "slope", "zipperhead",
+
+  // Terms related to mental health slurs
+  "psycho", "retard", "schizo", "spaz", "crazy", "nutcase",
+
+  // Sexist and misogynistic terms
+  "bimbo", "hussy", "tramp", "trophy", "sow", "cow", "nag", "harpy",
+
+  // Homophobic slurs
+  "dyke", "fudgepacker", "fairy", "homo", "lesbo",
+
+  // Ableist slurs
+  "cripple", "gimp", "lame", "vegetable",
+
+  // Other potentially harmful or derogatory terms
+  "junkie", "methhead", "druggie", "whino", "whitey", "zipperhead", 
+  "junk", "filth", "kunt", "vagina", "pecker", "dingbat", "dolt",
+  "hillbilly", "redneck", "trailertrash", "breeder"
+];
 
   // Function to check for bad words
   function containsBadWords(message) {
